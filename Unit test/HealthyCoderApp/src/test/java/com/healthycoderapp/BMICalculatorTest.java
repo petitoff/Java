@@ -77,4 +77,17 @@ class BMICalculatorTest {
         // then
         assertNull(coderWorstBmi);
     }
+
+    @Test
+    void should_ReturnCorrectBMIScoreArray_When_CoderListNoEmpty() {
+        // given
+        List<Coder> coders = new ArrayList<>();
+        coders.add(new Coder(1.80, 60.0));
+
+        // when
+        Coder coderWorstBmi = BMICalculator.findCoderWithWorstBMI(coders);
+
+        // then
+        assertNull(coderWorstBmi);
+    }
 }
