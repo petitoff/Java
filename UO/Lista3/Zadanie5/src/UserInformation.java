@@ -1,5 +1,10 @@
 import java.time.LocalDate;
+import java.time.chrono.IsoChronology;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DecimalStyle;
+import java.time.format.ResolverStyle;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInformation {
@@ -14,8 +19,15 @@ public class UserInformation {
             int birthYear = LocalDate.now().getYear() - age;
             System.out.println("Rok urodzenia: " + birthYear);
         } else if (isBirthDate(userInput)) {
+            DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                    .appendPattern("d MMMM yyyy 'roku'")
+                    .parseCaseInsensitive()
+                    .toFormatter(new Locale("pl", "PL"))
+                    .withResolverStyle(ResolverStyle.STRICT)
+                    .withChronology(IsoChronology.INSTANCE)
+                    .withDecimalStyle(DecimalStyle.of(Locale.forLanguageTag("pl-PL")));
             LocalDate birthDate = LocalDate.parse(userInput, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-            String formattedBirthDate = birthDate.format(DateTimeFormatter.ofPattern("d MMMM yyyy 'roku'"));
+            String formattedBirthDate = birthDate.format(formatter);
             System.out.println("Urodziłeś/łaś się " + formattedBirthDate);
         } else if (isPesel(userInput)) {
             String pesel = userInput;
