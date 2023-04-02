@@ -16,26 +16,14 @@ public class UserInformation {
 
         if (isAge(userInput)) {
             int age = Integer.parseInt(userInput);
-            int birthYear = LocalDate.now().getYear() - age;
-            System.out.println("Rok urodzenia: " + birthYear);
+            printInfo(age);
         } else if (isBirthDate(userInput)) {
-            DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-                    .appendPattern("d MMMM yyyy 'roku'")
-                    .parseCaseInsensitive()
-                    .toFormatter(new Locale("pl", "PL"))
-                    .withResolverStyle(ResolverStyle.STRICT)
-                    .withChronology(IsoChronology.INSTANCE)
-                    .withDecimalStyle(DecimalStyle.of(Locale.forLanguageTag("pl-PL")));
             LocalDate birthDate = LocalDate.parse(userInput, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-            String formattedBirthDate = birthDate.format(formatter);
-            System.out.println("Urodziłeś/łaś się " + formattedBirthDate);
+            printInfo(birthDate);
         } else if (isPesel(userInput)) {
-            String pesel = userInput;
-            LocalDate birthDate = getBirthDateFromPesel(pesel);
-            String genderStr = pesel.charAt(9) % 2 == 0 ? "kobieta" : "mężczyzna";
-            System.out.println("PESEL: " + pesel);
-            System.out.println("Data urodzenia: " + birthDate);
-            System.out.println("Płeć: " + genderStr);
+            LocalDate birthDate = getBirthDateFromPesel(userInput);
+            String genderStr = userInput.charAt(9) % 2 == 0 ? "kobieta" : "mężczyzna";
+            printInfo(userInput, birthDate, genderStr);
         } else if (isFullName(userInput)) {
             String[] names = userInput.split("\\s+|-");
             if (names.length >= 2) {
@@ -45,9 +33,7 @@ public class UserInformation {
                 for (int i = 1; i < names.length - 1; i++) {
                     middleName += names[i] + " ";
                 }
-                System.out.println("Imię: " + firstName);
-                System.out.println("Drugie imię: " + middleName.trim());
-                System.out.println("Nazwisko: " + lastName);
+                printInfo(firstName, middleName.trim(), lastName);
             }
         } else {
             System.out.println("Nie rozpoznano podanej wartości.");
@@ -104,5 +90,36 @@ public class UserInformation {
             year += 1900;
         }
         return LocalDate.of(year, month, day);
+    }
+
+    private static void printInfo(int age) {
+        int birthYear = LocalDate.now().getYear() - age;
+        System.out.println("Rok urodzenia: " + birthYear);
+    }
+
+    private static void printInfo(LocalDate birthDate) {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendPattern("d MMMM yyyy 'roku'")
+                .parseCaseInsensitive()
+                .toFormatter(new Locale("pl", "PL"))
+                .withResolverStyle(ResolverStyle.STRICT)
+                .withChronology(IsoChronology.INSTANCE)
+                .withDecimalStyle(DecimalStyle.of(Locale.forLanguageTag("pl-PL")));
+        String formattedBirthDate = birthDate.format(formatter);
+        System.out.println("Urodziłeś/łaś się " + formattedBirthDate);
+    }
+
+    private static void printInfo(String pesel, LocalDate birthDate, String genderStr) {
+        System.out.println("PESEL: " + pesel);
+        System.out.println("Data urodzenia: " + birthDate);
+        System.out.println("Płeć: " + genderStr);
+    }
+
+    private static void printInfo(String firstName, String middleName, String lastName) {
+        System.out.println("Imię: " + firstName);
+        if (middleName != null && !middleName.isEmpty()) {
+            System.out.println("Drugie imię: " + middleName);
+        }
+        System.out.println("Nazwisko: " + lastName);
     }
 }
