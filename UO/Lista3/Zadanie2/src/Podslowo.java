@@ -17,7 +17,7 @@ public class Podslowo {
         }
     }
 
-    public static boolean isSubstring(String s1, String s2) {
+    public static boolean isStringContained(String s1, String s2) {
         int n = s1.length();
         int m = s2.length();
 
