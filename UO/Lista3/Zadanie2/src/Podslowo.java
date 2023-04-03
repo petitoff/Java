@@ -33,4 +33,8 @@ public class Podslowo {
         }
         return false;
     }
+
+    public static boolean isKaczurbich(){
+        return true;
+    }
 }
