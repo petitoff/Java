@@ -17,24 +17,21 @@ public class Podslowo {
         }
     }
 
-    public static boolean isSubstringContained(String s1, String s2) {
-        int n = s1.length();
-        int m = s2.length();
-        for (int i = 0; i <= m - n; i++) {
+    public static boolean isSubstringContained(String substring, String string) {
+        int substringLength = substring.length();
+        int stringLength = string.length();
+        for (int i = 0; i <= stringLength - substringLength; i++) {
             int j;
-            for (j = 0; j < n; j++) {
-                if (s2.charAt(i + j) != s1.charAt(j)) {
+            for (j = 0; j < substringLength; j++) {
+                if (string.charAt(i + j) != substring.charAt(j)) {
                     break;
                 }
             }
-            if (j == n) {
+            if (j == substringLength) {
                 return true;
             }
         }
         return false;
     }
 
-    public static boolean isKaczurbich(){
-        return true;
-    }
 }
