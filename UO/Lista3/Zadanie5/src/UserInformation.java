@@ -42,7 +42,7 @@ public class UserInformation {
 
     private static boolean isAge(String input) {
         try {
-            if (input.length() == 11) {
+            if (input.matches("^\\d{11}$")) {
                 return false;
             }
 
