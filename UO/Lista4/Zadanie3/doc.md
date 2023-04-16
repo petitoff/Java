@@ -1,5 +1,3 @@
-Oto kilka przykładowych pytań, które mogą pojawić się podczas obrony, wraz z odpowiedziami:
-
 Co to jest klasa SimpleDateFormat i jak jej użyć?
 Odpowiedź: Klasa SimpleDateFormat jest klasą w Javie, która umożliwia formatowanie i parsowanie dat w określonym formacie. Aby użyć tej klasy, należy utworzyć nowy obiekt SimpleDateFormat i podać w konstruktorze żądany format daty. Następnie można użyć metody format() do przekształcenia daty w łańcuch znaków lub metody parse() do przekształcenia łańcucha znaków w datę.
 

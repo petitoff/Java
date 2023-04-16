@@ -22,7 +22,7 @@ public class ObliczRozniceCzasu {
 
         ZoneId strefa1 = ZoneId.of("Europe/Warsaw");
         ZoneId strefa2 = ZoneId.of("America/New_York");
-        LocalDate data = LocalDate.of(2022, 1, 1);
+        LocalDate data = LocalDate.of(2022, 2, 12);
 
         ZonedDateTime dateTime1 = ZonedDateTime.of(data, LocalTime.of(godziny1, minuty1), strefa1);
         ZonedDateTime dateTime2 = ZonedDateTime.of(data, LocalTime.of(godziny2, minuty2), strefa2);
