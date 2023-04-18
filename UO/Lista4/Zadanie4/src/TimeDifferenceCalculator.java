@@ -6,9 +6,6 @@ public class TimeDifferenceCalculator {
         // Ustawienia stref czasowych i daty
         TimeZone timeZone1 = TimeZone.getTimeZone("Europe/Warsaw");
         TimeZone timeZone2 = TimeZone.getTimeZone("America/New_York");
-        int year = 2023;
-        int month = 4;
-        int day = 16;
 
         // Obliczanie różnicy czasu w ms
         long millis1 = timeZone1.getRawOffset() + timeZone1.getDSTSavings();

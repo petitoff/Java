@@ -23,7 +23,8 @@ public class ObliczLiczbeDni {
 
             System.out.println("Liczba dni między datami to: " + dni);
         } catch (Exception e) {
-            System.out.println("Nieprawidłowy format daty!");
+            System.out.println("Nieprawidłowy format daty! " + e.getMessage());
+
         }
     }
 }
