@@ -6,8 +6,8 @@ public class MultiplicationTable {
         System.out.print("Podaj liczbe naturalna n: ");
         int n = scanner.nextInt();
 
-        int columnWidth = Integer.toString(n * n).length() + 1;
         // oblicz szerokość kolumny, zależną od największej liczby w tabeli
+        int columnWidth = Integer.toString(n * n).length() + 1;
 
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= n; j++) {

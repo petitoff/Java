@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -53,9 +52,9 @@ public class DateList {
     }
 
     private void sortDates() {
-        dates.sort((o1, o2) -> {
-            String[] parts1 = o1.split("-");
-            String[] parts2 = o2.split("-");
+        dates.sort((date1, date2) -> {
+            String[] parts1 = date1.split("-");
+            String[] parts2 = date2.split("-");
             int year1 = Integer.parseInt(parts1[2]);
             int year2 = Integer.parseInt(parts2[2]);
             int month1 = Integer.parseInt(parts1[1]);
@@ -81,7 +80,7 @@ public class DateList {
             int day = Integer.parseInt(parts[0]);
             int month = Integer.parseInt(parts[1]);
             int year = Integer.parseInt(parts[2]);
-            if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1) {
+            if ((day < 1) || (day > 31) || (month < 1) || (month > 12) || (year < 1)) {
                 return false;
             }
         } catch (NumberFormatException e) {
