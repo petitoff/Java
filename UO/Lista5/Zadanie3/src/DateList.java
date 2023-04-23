@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -54,7 +53,7 @@ public class DateList {
     }
 
     private void sortDates() {
-        Collections.sort(dates, (o1, o2) -> {
+        dates.sort((o1, o2) -> {
             String[] parts1 = o1.split("-");
             String[] parts2 = o2.split("-");
             int year1 = Integer.parseInt(parts1[2]);
