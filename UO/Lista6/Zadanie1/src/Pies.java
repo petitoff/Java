@@ -1,4 +1,4 @@
-public class Pies extends Zwierze implements Ssak, Ladowe{
+public class Pies extends Zwierze implements Ssak, Ladowe {
     public Pies(String nazwa) {
         super(nazwa);
     }
@@ -19,7 +19,7 @@ public class Pies extends Zwierze implements Ssak, Ladowe{
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Pies o nazawie: " + getNazwa();
     }
 }
