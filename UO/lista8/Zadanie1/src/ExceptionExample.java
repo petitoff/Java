@@ -8,8 +8,8 @@ public class ExceptionExample {
     public static void main(String[] args) {
         try {
             // Przykład 1: FileNotFoundException
-//            File file = new File("nonexistent_file.txt");
-            File file = new File("C:\\Users\\petit\\Desktop\\repos\\Java\\UO\\lista8\\Zadanie1\\src\\example.txt");
+            File file = new File("nonexistent_file.txt");
+//            File file = new File("C:\\Users\\petit\\Desktop\\repos\\Java\\UO\\lista8\\Zadanie1\\src\\example.txt");
             Scanner scanner = new Scanner(file);
 
 

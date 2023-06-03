@@ -3,14 +3,28 @@ import java.util.Collections;
 import java.util.List;
 
 public class Student implements Comparable<Student> {
-    private int rocznik;
-    private String nazwisko;
-    private double srednia;
+    private final int rocznik;
+    private final String nazwisko;
+    private final double srednia;
 
     public Student(int rocznik, String nazwisko, double srednia) {
         this.rocznik = rocznik;
         this.nazwisko = nazwisko;
         this.srednia = srednia;
+    }
+
+    public static void main(String[] args) {
+        List<Student> listaStudentow = new ArrayList<>();
+        listaStudentow.add(new Student(2020, "Kowalski", 4.5));
+        listaStudentow.add(new Student(2021, "Nowak", 3.8));
+        listaStudentow.add(new Student(2020, "Zielinski", 4.5));
+        listaStudentow.add(new Student(2020, "Kowalski", 4.0));
+
+        Collections.sort(listaStudentow);
+
+        for (Student student : listaStudentow) {
+            System.out.println(student);
+        }
     }
 
     public int getRocznik() {
@@ -44,22 +58,8 @@ public class Student implements Comparable<Student> {
     public String toString() {
         return "Student{" +
                 "rocznik=" + rocznik +
-                ", nazwisko='" + nazwisko + '\'' +
-                ", srednia=" + srednia +
+                ", srednia=" + srednia + '\'' +
+                ", nazwisko='" + nazwisko +
                 '}';
-    }
-
-    public static void main(String[] args) {
-        List<Student> listaStudentow = new ArrayList<>();
-        listaStudentow.add(new Student(2020, "Kowalski", 4.5));
-        listaStudentow.add(new Student(2021, "Nowak", 3.8));
-        listaStudentow.add(new Student(2020, "Zielinski", 4.5));
-        listaStudentow.add(new Student(2020, "Kowalski", 4.0));
-
-        Collections.sort(listaStudentow);
-
-        for (Student student : listaStudentow) {
-            System.out.println(student);
-        }
     }
 }

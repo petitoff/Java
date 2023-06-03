@@ -9,7 +9,7 @@ public class GameAccountForm {
             JFrame frame = new JFrame("Formularz tworzenia konta");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.add(new GameAccountPanel());
-            frame.setSize(400, 350);
+            frame.setSize(500, 350);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         });
