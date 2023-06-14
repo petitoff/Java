@@ -48,7 +48,7 @@ public class NoThreadFileExample {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder buffer = new StringBuilder();
             String line;
-            Random random = new Random(); // Dodano generator liczb losowych
+            Random random = new Random();
 
             textArea.setText("");
 

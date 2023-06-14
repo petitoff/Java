@@ -52,7 +52,7 @@ public class ThreadFileExample {
             String line;
             int linesRead = 0;
             int updateInterval = 1000;
-            Random random = new Random(); // Dodano generator liczb losowych
+            Random random = new Random();
 
             SwingUtilities.invokeLater(() -> textArea.setText(""));
 
