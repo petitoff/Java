@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Nauczyciel {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        var scanner = new Scanner(System.in);
 
         String imie = PrintAndGetResponse(scanner, "Podaj imię");
         Uczen.numerKursu = Integer.parseInt(PrintAndGetResponse(scanner, "Podaj numer kursu: "));

@@ -52,10 +52,12 @@ public class Uczen {
     }
 
     public void printAllProperty() {
+        System.out.println("Wyświetlam wszystkie pola");
         System.out.println("imie: " + getImie());
         System.out.println("numer kursu: " + Uczen.numerKursu);
         System.out.println("rok: " + rok);
         System.out.println("ocena: " + getOcena());
         System.out.println("ulubiony kolor: " + getUlubionyKolor());
     }
+
 }
