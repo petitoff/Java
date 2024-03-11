@@ -10,7 +10,7 @@ public class Nauczyciel {
         int ocena = Integer.parseInt(PrintAndGetResponse(scanner, "Ocena: "));
         String ulubionyKolor = PrintAndGetResponse(scanner, "Podaj ulubiony kolor");
 
-        Uczen uczen = new Uczen(imie, ocena, ulubionyKolor, rok);
+        Uczen uczen = new Uczen(imie, ocena, ulubionyKolor, rok, scanner);
         uczen.printAllProperty();
 
         scanner.close();

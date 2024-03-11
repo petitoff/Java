@@ -1,9 +1,12 @@
+import java.util.Scanner;
+
 public class Uczen {
     public static int numerKursu;
     public final int rok;
     private String imie;
     private int ocena;
     private String ulubionyKolor;
+    private Scanner scanner;
 
     public Uczen() {
         rok = 2001;
@@ -20,7 +23,9 @@ public class Uczen {
         setOcena(ocena);
     }
 
-    public Uczen(String imie, int ocena, String ulubionyKolor, int rok) {
+    public Uczen(String imie, int ocena, String ulubionyKolor, int rok, Scanner scanner) {
+        this.scanner = scanner;
+
         this.rok = rok;
         setImie(imie);
         setOcena(ocena);
@@ -40,7 +45,25 @@ public class Uczen {
     }
 
     public void setOcena(int ocena) {
-        this.ocena = ocena;
+        if (ocena >= 2 && ocena <= 5) {
+            this.ocena = ocena;
+        } else {
+            askForGradeAgain();
+        }
+    }
+
+    private void askForGradeAgain() {
+        while (true) {
+            System.out.println("Zła ocena. Dopuszczalne wartości to 2-5.");
+            System.out.print("Ocena: ");
+            int newOcena = Integer.parseInt(this.scanner.nextLine());
+            if (newOcena >= 1 && newOcena <= 5) {
+                this.ocena = newOcena;
+                break;
+            } else {
+                System.out.println("Zła ocena. Podaj ocenę jeszcze raz.");
+            }
+        }
     }
 
     public String getUlubionyKolor() {
